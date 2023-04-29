@@ -1,10 +1,13 @@
+import { Flex, Box } from "@chakra-ui/react"
 import DesktopNavbar from "./DesktopNavbar/DesktopNavbar"
 export default function Layout({children}){
 
     return(
         <>
+        <Flex>
          <DesktopNavbar/>
-         <main>{children}</main>
+         <Box as='main' flex={'1'}>{children}</Box>
+         </Flex>
         </>
        
     )
