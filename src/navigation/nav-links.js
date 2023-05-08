@@ -21,7 +21,7 @@ const NAV_LINKS = [
     },
     {
       name: "Trasy Biegowe",
-      href: "/",
+      href: "/running-trails",
       icon: FaRunning,
     },
     {
@@ -39,11 +39,19 @@ const NAV_LINKS = [
       href: "/",
       icon: MdOutlineAccountBalance,
     },
+    // {
+    //   name: "Wycieczki",
+    //   href: "/",
+    //   icon: FaMapSigns,
+    // },
+
     {
-      name: "Wycieczki",
-      href: "/",
+      name: "Dodaj trasę",
+      href: "/create-route",
       icon: FaMapSigns,
     },
+
+
   
     
    

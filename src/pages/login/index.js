@@ -12,7 +12,7 @@ export default function LoginPage(){
     const isDark = colorMode == 'dark';
     const bgColor = useColorModeValue('gray.200', 'gray.900')
     
-
+    
 
     useEffect(()=>{
         if(session){
