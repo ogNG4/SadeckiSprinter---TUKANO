@@ -1,4 +1,4 @@
-import SectionHeader from "@/components/UI/SectionHeader/SectionHeader";
+import SectionHeader from "@/UI/SectionHeader/SectionHeader"
 
 export default function RunningTrails(){
     return(
