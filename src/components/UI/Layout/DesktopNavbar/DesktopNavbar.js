@@ -19,6 +19,13 @@ import {
   Button,
   position,
   Tooltip,
+  Divider,
+  Avatar,
+  Menu,
+  MenuButton,
+  MenuList,
+  MenuItem,
+  MenuDivider,
 } from "@chakra-ui/react";
 
 import { Search2Icon } from "@chakra-ui/icons";
@@ -28,14 +35,17 @@ import Link from "next/link";
 import LoginButton from "@/UI/LoginButton/LoginButton";
 import NAV_LINKS from "@/navigation/nav-links";
 import { useRouter } from "next/router";
+import { useSession, useUser } from "@supabase/auth-helpers-react";
 
 export default function DesktopNavbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
   const inputColor = useColorModeValue("gray.200", "gray.700");
   const textColor = useColorModeValue("gray.700", "gray.200");
-  const fontValues = { fontSize: { base: "s", lg: "xl" }, fontWeight: "400" };
+  const fontValues = { fontSize: { base: "s", lg: "l" }, fontWeight: "400" };
   const tooltipLabel = isDark ? "Tryb jasny" : "Tryb ciemny";
+  const user = useUser();
+  const session = useSession();
 
   const router = useRouter();
 
@@ -71,10 +81,9 @@ export default function DesktopNavbar() {
 
           <Center>
             <InputGroup w={"80%"}>
-              <InputLeftElement
-                pointerEvents={"none"}
-                // children={<Search2Icon />}
-              />
+              <InputLeftElement pointerEvents={"none"}>
+                <Search2Icon />
+              </InputLeftElement>
               <Input bg={inputColor} outline={"none"} />
             </InputGroup>
           </Center>
@@ -120,16 +129,51 @@ export default function DesktopNavbar() {
           p={"2rem"}
           w={"100%"}
           bg={isDark ? "gray.800" : "white"}
-          alignSelf={"end"}
+          // alignSelf={"end"}
           gap={"20px"}
           direction={"column"}
+          
         >
-          <Flex w={"100%"} m={"0 auto"} alignItems={"center"} gap={"20px"}>
-            <Tooltip hasArrow label="Zaloguj się" bg="red.600">
-              <LoginButton />
-            </Tooltip>
-            <Spacer />
-            <Tooltip hasArrow label={tooltipLabel}>
+          <Divider w={"100%"} m={"0 auto"} />
+          {!session ? (
+            <Flex w={"100%"} m={"0 auto"} alignItems={"center"} gap={"20px"}>
+              <Tooltip hasArrow label="Zaloguj się" bg="red.600">
+                <LoginButton />
+              </Tooltip>
+              <Spacer />
+              <Tooltip hasArrow label={tooltipLabel}>
+                <Button onClick={toggleColorMode}>
+                  {isDark ? (
+                    <IoSunnyOutline fontSize={"1.5em"} />
+                  ) : (
+                    <IoMoonOutline fontSize={"1.5em"} />
+                  )}
+                </Button>
+              </Tooltip>
+            </Flex>
+          ) : (
+            <Flex justifyContent={"space-between"} alignItems={"center"}  w={'100%'} >
+              <Menu>
+                <MenuButton
+                  as={Button}
+                  rounded={"full"}
+                  variant={"link"}
+                  cursor={"pointer"}
+                  
+                >
+                  <Avatar />
+                </MenuButton>
+                <MenuList>
+                  <MenuItem>Link 1</MenuItem>
+                  <MenuDivider />
+                  <MenuItem>Link 2</MenuItem>
+                  <MenuDivider />
+                  <MenuItem>
+                    <LoginButton />
+                  </MenuItem>
+                </MenuList>
+              </Menu>
+              <Text fontWeight={'500'}>Witaj Marcin!</Text>
               <Button onClick={toggleColorMode}>
                 {isDark ? (
                   <IoSunnyOutline fontSize={"1.5em"} />
@@ -137,8 +181,8 @@ export default function DesktopNavbar() {
                   <IoMoonOutline fontSize={"1.5em"} />
                 )}
               </Button>
-            </Tooltip>
-          </Flex>
+            </Flex>
+          )}
         </Flex>
       </Flex>
     </Box>

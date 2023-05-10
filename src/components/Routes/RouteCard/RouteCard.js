@@ -35,7 +35,7 @@ export default function RouteCard() {
           whileHover={{scale: 1.05}}
         >
           <Box h={"45%"} position={'relative'}>
-            <Box position={'absolute'} zIndex={'20'} bg={'yellow.300'} top={'.5rem'} right={'.5rem'} p={'3px 15px'} borderRadius={'10px'} >
+            <Box position={'absolute'}  bg={'yellow.300'} top={'.5rem'} right={'.5rem'} p={'3px 15px'} borderRadius={'10px'} >
               <MdDirectionsBike fontSize={'1.5rem'} />
             </Box>
             <iframe

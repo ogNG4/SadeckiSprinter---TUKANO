@@ -21,7 +21,7 @@ export default function LoginButton() {
 
   const buttonSize= { fontSize: "1.5em" };
   const buttonColor = session? "red.300" : "green.300";
-  const buttonIcon = session? <MdLogout  style={buttonSize} /> : <MdLogin style={buttonSize} />;
+  const buttonIcon = session? 'Wyloguj się' : 'Zaloguj się';
   const tooltipLabel = session? 'Wyloguj się' : 'Zaloguj się';
 
   return (
