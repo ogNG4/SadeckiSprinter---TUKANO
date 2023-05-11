@@ -11,7 +11,7 @@ export default function MobileNavLink({ name, href, icon: Icon }) {
     <Box
       color={textColor}
       bg={isActive ? "green.400" : "transparent"}
-      color={isActive ? "white" : textColor}
+    //   color={isActive ? "white" : textColor}
       p={'5px'}
       borderRadius={'5px'}
       
