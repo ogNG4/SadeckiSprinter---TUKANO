@@ -7,7 +7,7 @@ export default function ErrorPage(){
             <VStack w={'100%'}>
                 <Image src="/logo.svg" w={'20%'}/>
                 <Text fontSize={'7xl'} fontWeight={'700'} color={textColor}>404</Text>
-                <Text fontSize={'7xl'} fontWeight={'700'} color={textColor}>Nie znaleziono strony</Text>
+                <Text fontSize={{base: '4xl', md:'7xl'}} fontWeight={'700'} color={textColor} textAlign={'center'}>Nie znaleziono strony</Text>
             </VStack>
         </Flex>
     );
