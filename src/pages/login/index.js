@@ -2,6 +2,7 @@ import { Box, Flex, colorMode, useColorModeValue } from "@chakra-ui/react";
 import { useSession, useSupabaseClient } from "@supabase/auth-helpers-react";
 import { Auth } from '@supabase/auth-ui-react'
 import { ThemeSupa, ThemeMinimal } from '@supabase/auth-ui-shared'
+import { supabase } from "lib/supabase";
 import { useRouter } from "next/router";
 import { useEffect } from "react";
 
@@ -18,13 +19,13 @@ export default function LoginPage(){
         if(session){
             router.push('/')
         }
-    }, [])
+    }, [session])
 
     return(
        <Box w={{base:'80%', xl: '30%'}} margin={'5rem auto'} bg={bgColor} p={'2rem'}  borderRadius={'20px'} >
         {!session ? (
             <Auth supabaseClient={supabase} appearance={{ theme:ThemeSupa }} theme={!isDark? ('dark') : ('light')}  />
-        ) : (<p>Acoount page</p>)}
+        ) : null}
 
        </Box>
     )

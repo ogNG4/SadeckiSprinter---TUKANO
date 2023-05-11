@@ -3,15 +3,14 @@ import {
     MdSportsTennis,
     MdOutlineAccountBalance,
     MdOutlineHome,
-    MdOutlineEventNote
     
   } from "react-icons/md";
 
-  import { FaRunning, FaHiking, FaMapSigns } from "react-icons/fa";
+  import { FaRunning, FaHiking, FaMapSigns, FaPlus } from "react-icons/fa";
 
-const NAV_LINKS = [
+const SESSION_NAV_LINKS = [
     {
-      name: "Strona Główna",
+      name: "Utwórz ",
       href: "/",
       icon: MdOutlineHome,
     },
@@ -40,22 +39,17 @@ const NAV_LINKS = [
       href: "/",
       icon: MdOutlineAccountBalance,
     },
-    {
-      name: "Wydarzenia sportowe",
-      href: "/",
-      icon: MdOutlineEventNote,
-    }
     // {
     //   name: "Wycieczki",
     //   href: "/",
     //   icon: FaMapSigns,
     // },
 
-    // {
-    //   name: "Dodaj trasę",
-    //   href: "/create-route",
-    //   icon: FaMapSigns,
-    // },
+    {
+      name: "Dodaj trasę",
+      href: "/create-route",
+      icon: FaMapSigns,
+    },
 
 
   
@@ -64,5 +58,5 @@ const NAV_LINKS = [
   ];
 
 
-  export default NAV_LINKS;
+  export default SESSION_NAV_LINKS;
   

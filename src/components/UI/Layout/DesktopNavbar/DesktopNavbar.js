@@ -30,12 +30,15 @@ import {
 
 import { Search2Icon } from "@chakra-ui/icons";
 import { IoSunnyOutline, IoMoonOutline } from "react-icons/io5";
+import { FiPlusSquare } from "react-icons/fi";
+import { AiOutlineHeart } from "react-icons/ai";
 
 import Link from "next/link";
 import LoginButton from "@/UI/LoginButton/LoginButton";
 import NAV_LINKS from "@/navigation/nav-links";
 import { useRouter } from "next/router";
 import { useSession, useUser } from "@supabase/auth-helpers-react";
+import NavLink from "./NavLink/NavLink";
 
 export default function DesktopNavbar() {
   const { colorMode, toggleColorMode } = useColorMode();
@@ -58,7 +61,6 @@ export default function DesktopNavbar() {
       position={"sticky"}
       top={0}
       left={0}
-      display={{ base: "none", md: "block" }}
       overflowY={"auto"}
       css={{
         "&::-webkit-scrollbar": {
@@ -97,29 +99,20 @@ export default function DesktopNavbar() {
             gap={{ base: "10px", lg: "20px" }}
           >
             {NAV_LINKS.map((link) => (
-              <HStack
-                _hover={{ bg: "green.400", color: "white", boxShadow: "lg" }}
-                key={link.name}
-                {...fontValues}
-                color={textColor}
-                w={"auto"}
-                p={".3rem 1rem"}
-                borderRadius={"10px"}
-                // _last={{
-                //   mt: "1.5rem",
-                //   bg: "blue.400",
-                //   color: "white",
-                //   _hover: { bg: "blue.500" },
-                // }}
-              >
-                <Link href={link.href}>
-                  <Flex alignItems={"center"} gap={"5px"}>
-                    <link.icon fontSize={"1.5rem"} />
-                    <Text>{link.name}</Text>
-                  </Flex>
-                </Link>
-              </HStack>
+           
+              <NavLink key={link.name} name={link.name} href={link.href} icon={link.icon} />
             ))}
+
+            {session? (
+            <>
+            <Divider/>
+            <NavLink name={'Dodaj'} href={"/"} icon={FiPlusSquare}/>
+            <NavLink name={'Ulubione'} href={"/"} icon={AiOutlineHeart}/>
+            </>
+            ) : null}
+
+            
+            
           </Flex>
         </Flex>
 
@@ -132,7 +125,6 @@ export default function DesktopNavbar() {
           // alignSelf={"end"}
           gap={"20px"}
           direction={"column"}
-          
         >
           <Divider w={"100%"} m={"0 auto"} />
           {!session ? (
@@ -152,14 +144,17 @@ export default function DesktopNavbar() {
               </Tooltip>
             </Flex>
           ) : (
-            <Flex justifyContent={"space-between"} alignItems={"center"}  w={'100%'} >
+            <Flex
+              justifyContent={"space-between"}
+              alignItems={"center"}
+              w={"100%"}
+            >
               <Menu>
                 <MenuButton
                   as={Button}
                   rounded={"full"}
                   variant={"link"}
                   cursor={"pointer"}
-                  
                 >
                   <Avatar />
                 </MenuButton>
@@ -173,7 +168,7 @@ export default function DesktopNavbar() {
                   </MenuItem>
                 </MenuList>
               </Menu>
-              <Text fontWeight={'500'}>Witaj Marcin!</Text>
+              <Text fontWeight={"500"}>Witaj Marcin!</Text>
               <Button onClick={toggleColorMode}>
                 {isDark ? (
                   <IoSunnyOutline fontSize={"1.5em"} />
