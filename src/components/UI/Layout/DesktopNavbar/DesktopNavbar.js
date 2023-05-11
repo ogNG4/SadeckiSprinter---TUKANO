@@ -38,14 +38,13 @@ import LoginButton from "@/UI/LoginButton/LoginButton";
 import NAV_LINKS from "@/navigation/nav-links";
 import { useRouter } from "next/router";
 import { useSession, useUser } from "@supabase/auth-helpers-react";
-import NavLink from "./NavLink/NavLink";
+import NavLink from "./NavLink/DesktopNavLink";
+import DesktopNavLink from "./NavLink/DesktopNavLink";
 
 export default function DesktopNavbar() {
   const { colorMode, toggleColorMode } = useColorMode();
   const isDark = colorMode === "dark";
   const inputColor = useColorModeValue("gray.200", "gray.700");
-  const textColor = useColorModeValue("gray.700", "gray.200");
-  const fontValues = { fontSize: { base: "s", lg: "l" }, fontWeight: "400" };
   const tooltipLabel = isDark ? "Tryb jasny" : "Tryb ciemny";
   const user = useUser();
   const session = useSession();
@@ -99,20 +98,21 @@ export default function DesktopNavbar() {
             gap={{ base: "10px", lg: "20px" }}
           >
             {NAV_LINKS.map((link) => (
-           
-              <NavLink key={link.name} name={link.name} href={link.href} icon={link.icon} />
+              <DesktopNavLink
+                key={link.name}
+                name={link.name}
+                href={link.href}
+                icon={link.icon}
+              />
             ))}
 
-            {session? (
-            <>
-            <Divider/>
-            <NavLink name={'Dodaj'} href={"/"} icon={FiPlusSquare}/>
-            <NavLink name={'Ulubione'} href={"/"} icon={AiOutlineHeart}/>
-            </>
+            {session ? (
+              <>
+                <Divider />
+                <NavLink name={"Dodaj"} href={"/bb"} icon={FiPlusSquare} />
+                <NavLink name={"Ulubione"} href={"/bb"} icon={AiOutlineHeart} />
+              </>
             ) : null}
-
-            
-            
           </Flex>
         </Flex>
 

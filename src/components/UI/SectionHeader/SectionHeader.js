@@ -4,7 +4,7 @@ export default function SectionHeader({ title }) {
   const textColor = useColorModeValue("gray.700", "white");
 
   return (
-    <Heading
+    <Heading as='h1'
       w={"max-content"}
       m={"3rem auto"}
       boxShadow={"green-lg"}

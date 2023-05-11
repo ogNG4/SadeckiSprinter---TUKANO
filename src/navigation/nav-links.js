@@ -27,22 +27,22 @@ const NAV_LINKS = [
     },
     {
       name: "Szlaki Piesze",
-      href: "/",
+      href: "/hikking-routes",
       icon: FaHiking,
     },
     {
       name: "Obiekty sportowe",
-      href: "/",
+      href: "/sports-objec",
       icon: MdSportsTennis,
     },
     {
       name: "Atrakcje turystyczne",
-      href: "/",
+      href: "/ss",
       icon: MdOutlineAccountBalance,
     },
     {
       name: "Wydarzenia sportowe",
-      href: "/",
+      href: "/aa",
       icon: MdOutlineEventNote,
     }
     // {

@@ -38,6 +38,7 @@ import LoginButton from "../../LoginButton/LoginButton";
 import NAV_LINKS from "@/navigation/nav-links";
 import { useRouter } from "next/router";
 import { useSession } from "@supabase/auth-helpers-react";
+import MobileNavLink from "./NavLink/MobileNavLink";
 
 export default function MobileNavbar() {
   const session = useSession();
@@ -50,6 +51,8 @@ export default function MobileNavbar() {
   const { isOpen, onOpen, onClose } = useDisclosure();
 
   const router = useRouter();
+  
+
 
   return (
     <Box
@@ -80,17 +83,14 @@ export default function MobileNavbar() {
         justifyContent={"space-between"}
         p={"1rem 0"}
       >
-        <VStack direction={"column"} gap={"10px"}>
+        <VStack direction={"column"} gap={"5px"}>
           <Center w={"100%"}>
             <Image src="logo-head.svg" alt="logo" w={"80%"} />
           </Center>
           <Divider w={"85%"} m={"0 auto"} />
           {NAV_LINKS.map((link) => (
-            <Box key={link.name} color={textColor}>
-              <Link href={link.href}>
-                <link.icon fontSize={"1.7rem"} />
-              </Link>
-            </Box>
+            <MobileNavLink key={link.name} href={link.href} icon={link.icon} />
+            
           ))}
 
           {session ? (
