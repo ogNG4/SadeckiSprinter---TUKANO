@@ -27,7 +27,7 @@ const NAV_LINKS = [
     },
     {
       name: "Szlaki Piesze",
-      href: "/hikking-routes",
+      href: "/hikking-trails",
       icon: FaHiking,
     },
     {

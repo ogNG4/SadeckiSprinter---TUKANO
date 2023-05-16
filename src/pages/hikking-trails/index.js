@@ -6,17 +6,17 @@ import Head from "next/head";
 import ROUTES from "data-test/routes";
 
 export default function BikeRoutes(){
-    const bikeRoutes = ROUTES.filter((route) => route.type === 'bike');
+    const hikingTrails = ROUTES.filter((route) => route.type === 'hiking');
     return(
         <>
         <Head>
-            <title>Trasy rowerowe</title>
+            <title>Szlaki piesze</title>
             <meta name="opis" content="Odkryj trasy rowerowe w swojej okolicy"/>
         </Head>
-        <SectionHeader title={'Trasy rowerowe'}/>
+        <SectionHeader title={'Szlaki piesze'}/>
         <RouteFilter/>
         <SectionWrapper>
-            { bikeRoutes.map((route) => (
+            { hikingTrails.map((route) => (
                 <RouteCard key={route.id} route={route}/>
             )) }
         </SectionWrapper>
