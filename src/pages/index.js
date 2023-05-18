@@ -1,6 +1,6 @@
 import LandingPageCard from "@/UI/LandingPage/LandingPageCard";
 import SectionHeader from "@/UI/SectionHeader/SectionHeader";
-import { ArrowDownIcon, ArrowForwardIcon, PlusSquareIcon } from "@chakra-ui/icons";
+import { ArrowDownIcon, ArrowForwardIcon, PlusSquareIcon, StarIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -8,6 +8,7 @@ import {
   Divider,
   Flex,
   Heading,
+  IconButton,
   Image,
   SimpleGrid,
   Stack,
@@ -55,6 +56,8 @@ export default function Home() {
       <Head>
         <title>Sądecki Sprinter</title>
       </Head>
+      
+      
       <Flex
         h={"100vh"}
         direction={"column"}

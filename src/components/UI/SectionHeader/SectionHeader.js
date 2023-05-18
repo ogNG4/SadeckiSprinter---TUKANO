@@ -11,7 +11,7 @@ export default function SectionHeader({ title }) {
       fontWeight={600}
     >
       <Text
-        fontSize={{base: '4xl', md:'7xl'}}
+        fontSize={{base: '3xl', md:'6xl'}}
         color={textColor}
         as={"span"}
         position={"relative"}

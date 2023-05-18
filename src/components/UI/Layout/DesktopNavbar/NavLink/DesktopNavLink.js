@@ -11,8 +11,8 @@ export default function DesktopNavLink({ name, href, icon: Icon }) {
   return (
     <HStack
       _hover={{ bg: "green.400", color: "white", boxShadow: "lg" }}
-      bg={isActive ? "green.400" : "transparent"} // Dodanie podświetlenia dla aktywnego linku
-      color={isActive ? "white" : textColor} // Zmiana koloru tekstu dla aktywnego linku
+      bg={isActive ? "green.400" : "transparent"} 
+      color={isActive ? "white" : textColor} 
       {...fontValues}
       w={"auto"}
       p={".3rem 1rem"}
