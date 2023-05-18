@@ -79,9 +79,10 @@ export default function RouteCard({ route }) {
               referrerpolicy="no-referrer-when-downgrade"
             ></iframe>
           </Box>
-          <Flex direction={"column"} h={"55%"}>
+          <Flex direction={"column"} h={"55%"} href='/'>
             <Center fontSize={"xl"} fontWeight={"500"} p={".3rem"} w={"100%"}>
-              {route.title}
+              <LinkOverlay href={`/bike-routes/${route.id}`}>{route.title}</LinkOverlay>
+              
             </Center>
             <Divider w={"80%"} m={"0 auto"} />
             {mobileWidth ? (

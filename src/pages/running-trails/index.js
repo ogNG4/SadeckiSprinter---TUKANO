@@ -7,6 +7,10 @@ export default function RunningTrails(){
     const runningTrails = ROUTES.filter((route) => route.type === 'running');
     return(
         <>
+         <Head>
+            <title>Trasy biegowe</title>
+            <meta name="opis" content="Odkryj trasy biegowe swojej okolicy"/>
+        </Head>
         <SectionHeader title={'Trasy biegowe'}/>
         <RouteFilter/>
         <SectionWrapper>
