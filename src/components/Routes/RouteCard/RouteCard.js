@@ -27,11 +27,12 @@ import {
 } from "react-icons/fa";
 import { AiOutlineStar, AiOutlineUser } from "react-icons/ai";
 
-import { motion } from "framer-motion";
+import { color, motion } from "framer-motion";
 
 import Link from "next/link";
 import { StarIcon } from "@chakra-ui/icons";
 import RouteCardStats from "./RouteCardStats/RouteCardStats";
+import { GiPathDistance } from "react-icons/gi";
 
 export default function RouteCard({ route }) {
   const fontColor = useColorModeValue("gray.600", "white");
@@ -41,9 +42,9 @@ export default function RouteCard({ route }) {
   };
   const [mobileWidth] = useMediaQuery("(max-width: 768px)");
   const difficultyBgColor =
-    route.difficulty == "easy"
+    route.difficulty == "łatwy"
       ? "green.300"
-      : route.difficulty == "medium"
+      : route.difficulty == "średni"
       ? "yellow.300"
       : "red.300";
   const bgColor = useColorModeValue("gray.100", "gray.600");
@@ -70,7 +71,7 @@ export default function RouteCard({ route }) {
           whileHover={{ scale: 1.05 }}
           maxW={"900px"}
         >
-          <Box h={{base: '40%', md:"45%"}} position={"relative"}>
+          <Box h={{ base: "40%", md: "45%" }} position={"relative"}>
             <iframe
               src="https://www.google.com/maps/embed?pb=!1m40!1m12!1m3!1d41336.75023111947!2d21.011733210963467!3d49.643993970051504!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!4m25!3e0!4m5!1s0x473dc1ebb577466f%3A0xd6f9957b2a77aca7!2sSzalowa!3m2!1d49.6827391!2d21.0231274!4m5!1s0x473dc28303acf59b%3A0xc4490e282f69bd7c!2zR3J5YsOzdywgMzMtMzMw!3m2!1d49.62406!2d20.947889999999997!4m5!1s0x473dc6f1d0e7e7cf%3A0x8dc074aa732cb272!2sGorlice!3m2!1d49.654615899999996!2d21.1596321!4m5!1s0x473dc1ebb577466f%3A0xd6f9957b2a77aca7!2sSzalowa!3m2!1d49.6827391!2d21.0231274!5e0!3m2!1spl!2spl!4v1682795509291!5m2!1spl!2spl&zoom=200"
               width="100%"
@@ -80,7 +81,7 @@ export default function RouteCard({ route }) {
             ></iframe>
           </Box>
           <Flex direction={"column"} h={"55%"} href='/'>
-            <Center fontSize={"xl"} fontWeight={"500"} p={".3rem"} w={"100%"}>
+            <Center fontSize={{base: "lg", md:"xl"}} fontWeight={"500"} p={".3rem"} w={"100%"}>
               <LinkOverlay href={`/bike-routes/${route.id}`}>{route.title}</LinkOverlay>
               
             </Center>
@@ -121,8 +122,8 @@ export default function RouteCard({ route }) {
                  
                   <Card  bg={bgColor} p={'10px 2rem'} >
                     <HStack>
-                      <AiOutlineUser fontSize={"1.5rem"} />
-                      <Text {...textProps}>marcio468</Text>
+                      <FaMapMarkerAlt fontSize={"1.5rem"} />
+                      <Text {...textProps}>Krynica</Text>
                     </HStack>
                   </Card>
                 </Flex>
@@ -134,7 +135,7 @@ export default function RouteCard({ route }) {
                 p={"0 1.5rem"}
                 gap={"15px"}
               >
-                <RouteCardStats content={"4.5"} icon={FaStar} />
+                <RouteCardStats content={"4.5"} icon={StarIcon } />
                 <RouteCardStats
                   content={route.time}
                   unit={"h"}
@@ -158,13 +159,42 @@ export default function RouteCard({ route }) {
                 </Card>
                 <Card flex={1} p={"10px 1rem"} bg={bgColor}>
                   <VStack>
-                    <AiOutlineUser fontSize={"1.5rem"} />
-                    <Text {...textProps}>marcio468</Text>
+                    <FaMapMarkerAlt fontSize={"1.5rem"} />
+                    <Text {...textProps}>Krynica</Text>
                   </VStack>
                 </Card>
               </Flex>
             )}
           </Flex>
+
+          {/* <Center fontSize={"xl"} fontWeight={"500"} p={".3rem"} w={"100%"}>
+            <LinkOverlay href={`/bike-routes/${route.id}`}>
+              {route.title}
+            </LinkOverlay>
+          </Center>
+          <Divider w={"80%"} m={"0 auto"} />
+          <SimpleGrid columns={2}  p={'1rem'}>
+            <Flex direction={'column'} gap={'10px'}>
+              <HStack>
+                <GiPathDistance fontSize={"1.5rem"} />
+                <Text {...textProps}>{route.distance} KM</Text>
+              </HStack>
+              <HStack>
+                <FaClock fontSize={"1.5rem"} />
+                <Text {...textProps}>{route.time} h</Text>
+              </HStack>
+              <HStack
+                bg={difficultyBgColor}
+                color={"white"}
+                borderRadius={"10px"}
+               w={'fit-content'}
+                p={'2px 10px'}
+              >
+                {routeIcon}
+                
+              </HStack>
+            </Flex>
+          </SimpleGrid> */}
         </Card>
       </LinkBox>
     </>

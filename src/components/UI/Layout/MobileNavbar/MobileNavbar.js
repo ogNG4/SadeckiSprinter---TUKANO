@@ -63,6 +63,7 @@ export default function MobileNavbar() {
       position={"sticky"}
       top={0}
       left={0}
+      zIndex={'1000'}
       // overflowY={"auto"}
       // css={{
       //   "&::-webkit-scrollbar": {
@@ -97,7 +98,7 @@ export default function MobileNavbar() {
             <>
               <Divider />
               <Box color={textColor} >
-                <Menu size={'sm'}>
+                <Menu size={'sm'} >
                   <MenuButton>
                     <FiPlusSquare  fontSize={"1.7rem"}/>
                   </MenuButton>
@@ -108,6 +109,9 @@ export default function MobileNavbar() {
                     <MenuDivider />
                     
                     <MenuItem>Atrakcja turstyczna</MenuItem>
+                    <MenuDivider />
+                    
+                    <MenuItem>Wydarzenie</MenuItem>
                   </MenuList>
                 </Menu>
               </Box>

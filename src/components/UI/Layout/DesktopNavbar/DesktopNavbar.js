@@ -46,6 +46,8 @@ export default function DesktopNavbar() {
   const isDark = colorMode === "dark";
   const inputColor = useColorModeValue("gray.200", "gray.700");
   const tooltipLabel = isDark ? "Tryb jasny" : "Tryb ciemny";
+  const textColor = useColorModeValue("gray.600", "gray.200");
+   const fontValues = { fontSize: { base: "s", lg: "xl" }, fontWeight: "400" };
   const user = useUser();
   const session = useSession();
 
@@ -109,7 +111,27 @@ export default function DesktopNavbar() {
             {session ? (
               <>
                 <Divider />
-                <NavLink name={"Dodaj"} href={"/bb"} icon={FiPlusSquare} />
+                 <Box color={textColor}  p={"0 1rem"}>
+                <Menu size={'sm'} >
+                  <MenuButton>
+                    <HStack>
+                    <FiPlusSquare fontSize={"1.7rem"}/>
+                    <Text fontWeight={'600'}>Dodaj</Text>
+                  </HStack>
+                  </MenuButton>
+                  <MenuList>
+                    <MenuItem>Trasa</MenuItem>
+                    <MenuDivider />
+                    <MenuItem>Obiekt sportowy</MenuItem>
+                    <MenuDivider />
+                    
+                    <MenuItem>Atrakcja turstyczna</MenuItem>
+                    <MenuDivider />
+                    
+                    <MenuItem>Wydarzenie</MenuItem>
+                  </MenuList>
+                </Menu>
+              </Box>
                 <NavLink name={"Ulubione"} href={"/bb"} icon={AiOutlineHeart} />
               </>
             ) : null}

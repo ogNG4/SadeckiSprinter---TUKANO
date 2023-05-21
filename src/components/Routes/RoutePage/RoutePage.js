@@ -19,12 +19,17 @@ import {
   Tooltip,
   IconButton,
   VStack,
+  Avatar,
+  Textarea,
+  Button,
+  Select,
 } from "@chakra-ui/react";
 import { MdDirectionsBike, MdStar } from "react-icons/md";
 import { FaClock, FaMapMarkedAlt, FaStar } from "react-icons/fa";
 import { StarIcon } from "@chakra-ui/icons";
 import { AiOutlineUser } from "react-icons/ai";
 import { GiPathDistance } from "react-icons/gi";
+import RouteComment from "./RouteComment";
 
 export default function RoutePage({ route }) {
 
@@ -96,7 +101,7 @@ export default function RoutePage({ route }) {
         </Card>
         <Divider w={"100%"} />
         <VStack mb={"1rem"}  >
-            <Heading fontSize={'2.5rem'}>Opis</Heading>
+            <Heading fontSize={'2.5rem'} color={fontColor} fontWeight={'600'}>Opis</Heading>
             <Divider />
           </VStack>
         <Box w={"100%"} color={fontColor}>
@@ -123,14 +128,14 @@ export default function RoutePage({ route }) {
           są często ozdobione kwiatami i kolorowymi ogródkami, co dodaje uroku
           temu malowniczemu krajobrazowi.
           <Spacer h={5} />
-          Docierając do Muszyny, ścieżka prowadzi wzdłuż rzeki Poprad, co dodaje
+          {/* Docierając do Muszyny, ścieżka prowadzi wzdłuż rzeki Poprad, co dodaje
           kolejnej warstwy piękna krajobrazowi. Zieleń brzegów rzeki i góry w
           tle tworzą niesamowitą scenerię, idealną do zatrzymania się na
           odpoczynek i zrelaksowanie się. Ta malownicza ścieżka rowerowa z
           Krynicy do Muszyny jest nie tylko świetnym sposobem na aktywne
           spędzenie czasu, ale także doskonałą okazją do odkrycia uroku Beskidu
           Sądeckiego. Bez względu na porę roku, ta trasa oferuje niezapomniane
-          wrażenia i pozwala na cieszenie się pięknem przyrody wokół nas.
+          wrażenia i pozwala na cieszenie się pięknem przyrody wokół nas. */}
         </Box>
         <Divider w={"100%"} />
         <Grid
@@ -170,9 +175,35 @@ export default function RoutePage({ route }) {
         <Divider w={"100%"} />
         
         <VStack mb={"1rem"}  >
-            <Heading fontSize={'2.5rem'}>Ciekawe miejsca w pobliżu</Heading>
+            <Heading fontSize={'2.5rem'} color={fontColor} fontWeight={'600'}>Komentarze</Heading>
             <Divider />
           </VStack>
+          <Flex direction={'column'} gap={'1rem'} mb={'2rem'} >
+            <Card w={'100%'}>
+              <Flex p={'1rem' } gap={'10px'}>
+                <Avatar/>
+                <Flex direction={'column'}  flex={1} gap={'10px'}>
+                    <Textarea placeholder="Zostaw komentarz ;)"/>
+                    <Select placeholder="ocena">
+                      <option>1</option>
+                      <option>2</option>
+                      <option>3</option>
+                      <option>4</option>
+                      <option>5</option>
+
+                      
+                    </Select>
+                    <Button colorScheme={'green'} w={'100%'}>Wyślij</Button>
+                  </Flex>
+              </Flex>
+            </Card>
+            <RouteComment user={'marcio468'} time={'10 min'} rating={'4.5'} comment={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, aliquam? Voluptates, iste. Mollitia voluptatem laborum maxime. Obcaecati alias tempora voluptatem pariatur aliquam corporis, distinctio optio, aut minima quia corrupti iure quaerat, officia asperiores deserunt provident"}/>
+            <RouteComment user={'ada44x'} time={'1 tydz'} rating={'5'} comment={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, aliquam? Voluptates, iste. Mollitia voluptatem laborum maxime. Obcaecati alias tempora voluptatem pariatur aliquam corporis, distinctio optio, aut minima quia corrupti iure quaerat, officia asperiores deserunt provident, aliquam corporis, distinctio optio, aut minima quia corrupti iure quaerat, officia asperiores deserunt provident"}/>
+            <RouteComment user={'ogNG4'} time={'2 godz'} rating={'3'} comment={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, aliquam? Voluptates, iste. Mollitia voluptatem laborum maxime. Obcaecati alias tempora voluptatem pariatur aliquam corporis, distinctio optio, aut minima quia corrupti iure quaerat, officia asperiores deserunt provident"}/>
+            <RouteComment user={'marcio468'} time={'10 min'} rating={'4.5'} comment={"Lorem ipsum dolor sit, amet consectetur adipisicing elit. Hic, aliquam? Voluptates, iste. Mollitia voluptatem laborum maxime. Obcaecati alias tempora voluptatem pariatur aliquam corporis, distinctio optio, aut minima quia corrupti iure quaerat, officia asperiores deserunt provident"}/>
+          </Flex>
+
+
       </Flex>
     </>
   );

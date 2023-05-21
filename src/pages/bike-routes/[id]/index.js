@@ -24,7 +24,7 @@ import { FaClock, FaMapMarkedAlt, FaStar } from "react-icons/fa";
 import { StarIcon } from "@chakra-ui/icons";
 import { AiOutlineUser } from "react-icons/ai";
 import {GiPathDistance} from 'react-icons/gi'
-import RoutePage from "components/Routes/RouteCard/RouteCardStats/RoutePage/RoutePage";
+import RoutePage from "components/Routes/RoutePage/RoutePage";
 
 export default function BikeRoutes() {
   const router = useRouter();

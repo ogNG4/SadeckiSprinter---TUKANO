@@ -118,8 +118,8 @@ export default function RouteFilter({ onClick }) {
                 <VStack>
                   <FormLabel>Czas</FormLabel>
                   <HStack>
-                    <Input type="number" placeholder="Od(KM)" fontSize={'sm'}/>
-                    <Input type="number" placeholder="Do(KM) " fontSize={'sm'}/>
+                    <Input type="number" placeholder="Od" fontSize={'sm'}/>
+                    <Input type="number" placeholder="Do " fontSize={'sm'}/>
                   </HStack>
                   {/* <RangeSlider defaultValue={[10, 30]} w={'100%'}  aria-label={['min', 'max']} min={0} max={200}  w={'50%'} step={0.1}>
                 
