@@ -86,7 +86,7 @@ export default function MobileNavbar() {
       >
         <VStack direction={"column"} gap={"5px"}>
           <Center w={"100%"}>
-            <Image src="logo-head.svg" alt="logo" w={"80%"} />
+            <Image src="/logo-head.svg" alt="logo" w={"80%"} />
           </Center>
           <Divider w={"85%"} m={"0 auto"} />
           {NAV_LINKS.map((link) => (

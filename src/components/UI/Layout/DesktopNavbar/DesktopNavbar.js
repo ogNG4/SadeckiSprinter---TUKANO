@@ -79,7 +79,7 @@ export default function DesktopNavbar() {
       <Flex direction={"column"} justifyContent={"space-between"} h={"100%"}>
         <Flex direction={"column"} mt={"1rem"} gap={"1rem"}>
           <Center w={"100%"}>
-            <Image src="logo.svg" alt="logo" />
+            <Image src="/logo.svg" alt="logo" />
           </Center>
 
           <Center>
